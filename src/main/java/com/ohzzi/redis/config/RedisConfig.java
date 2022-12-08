@@ -1,25 +1,23 @@
 package com.ohzzi.redis.config;
 
-import org.redisson.spring.data.connection.RedissonConnectionFactory;
+import org.redisson.Redisson;
+import org.redisson.api.RedissonClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.redis.connection.RedisConnectionFactory;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.repository.configuration.EnableRedisRepositories;
 
 @Configuration
 @EnableRedisRepositories
 public class RedisConfig {
 
-    @Bean
-    public RedisConnectionFactory redisConnectionFactory() {
-        return new RedissonConnectionFactory();
+    private final EmbeddedRedisConfig redisConfig;
+
+    public RedisConfig(final EmbeddedRedisConfig config) {
+        this.redisConfig = config;
     }
 
     @Bean
-    public RedisTemplate<?, ?> redisTemplate() {
-        RedisTemplate<byte[], byte[]> redisTemplate = new RedisTemplate<>();
-        redisTemplate.setConnectionFactory(redisConnectionFactory());
-        return redisTemplate;
+    public RedissonClient redissonClient() {
+        return Redisson.create();
     }
 }
