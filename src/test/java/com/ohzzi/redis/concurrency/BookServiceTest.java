@@ -16,7 +16,7 @@ class BookServiceTest {
     @Autowired
     private BookRepository bookRepository;
     @Autowired
-    private BookService bookService;
+    private BookLockFacade bookLockFacade;
 
     @AfterEach
     void cleanUp() {
@@ -33,7 +33,7 @@ class BookServiceTest {
         for (int i = 0; i < 100; i++) {
             executorService.submit(() -> {
                 try {
-                    bookService.purchase(bookId, 1);
+                    bookLockFacade.purchase(bookId, 1);
                 } finally {
                     countDownLatch.countDown();
                 }
