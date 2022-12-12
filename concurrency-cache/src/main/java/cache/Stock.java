@@ -1,4 +1,4 @@
-package com.ohzzi.redis.concurrency;
+package cache;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,10 +1,10 @@
-package com.ohzzi.redis;
+package lock;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class RedisApplicationTests {
+class ApplicationTests {
 
 	@Test
 	void contextLoads() {

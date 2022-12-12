@@ -1,7 +1,11 @@
-package com.ohzzi.redis.concurrency;
+package lock;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import lock.Book;
+import lock.BookLockFacade;
+import lock.BookRepository;
+import lock.Stock;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

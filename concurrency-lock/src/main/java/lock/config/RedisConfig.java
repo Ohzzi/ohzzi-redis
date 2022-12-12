@@ -1,4 +1,4 @@
-package com.ohzzi.redis.config;
+package lock.config;
 
 import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;

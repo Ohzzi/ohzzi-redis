@@ -1,4 +1,4 @@
-package com.ohzzi.redis.concurrency;
+package lock;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;

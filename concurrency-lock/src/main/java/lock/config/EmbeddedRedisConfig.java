@@ -1,4 +1,4 @@
-package com.ohzzi.redis.config;
+package lock.config;
 
 import java.io.IOException;
 import javax.annotation.PostConstruct;

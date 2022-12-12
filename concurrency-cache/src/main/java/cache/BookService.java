@@ -1,4 +1,4 @@
-package com.ohzzi.redis.concurrency;
+package cache;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

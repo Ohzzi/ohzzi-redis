@@ -1,4 +1,4 @@
-package com.ohzzi.redis.concurrency;
+package lock;
 
 import java.util.concurrent.TimeUnit;
 import org.redisson.api.RLock;

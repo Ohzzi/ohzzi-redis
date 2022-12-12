@@ -1,1 +1,6 @@
 rootProject.name = 'redis'
+
+include(
+        'concurrency-lock',
+        'concurrency-cache'
+)
