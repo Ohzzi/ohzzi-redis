@@ -36,7 +36,7 @@ public class Book {
         this.stock = stock;
     }
 
-    public void purchase(final long quantity) {
-        stock.decrease(quantity);
+    public void syncStock(final long remain) {
+        this.stock = new Stock(remain);
     }
 }

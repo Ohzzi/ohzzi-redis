@@ -1,6 +1,6 @@
 package cache;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
@@ -34,16 +34,15 @@ class ConcurrencyTest {
             executorService.submit(() -> {
                 try {
                     bookService.purchase(bookId, 1);
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
                 } finally {
                     countDownLatch.countDown();
                 }
             });
         }
-
         countDownLatch.await();
-        Book actual = bookRepository.findById(bookId)
-                .orElseThrow();
 
-        assertThat(actual.getStock().getRemain()).isZero();
+        assertThatThrownBy(() -> bookService.purchase(bookId, 1)).isInstanceOf(IllegalArgumentException.class);
     }
 }
